@@ -1,0 +1,23 @@
+.content-area {
+  @include container(1000px);
+  display: block;
+  margin: 0 auto;
+  width: $size__site-main;
+}
+
+.site-main {
+
+}
+
+.site-content .widget-area {
+  @include container(1000px);
+  display: block;
+  clear: both;
+  overflow: hidden;
+  width: $size__site-main;
+}
+
+.site-footer {
+  clear: both;
+  width: $size__site-main;
+}

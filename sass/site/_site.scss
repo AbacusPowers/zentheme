@@ -1,0 +1,27 @@
+@import "../layout/single-column";
+// @import "../layout/sidebar-content";
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+@import "primary/posts-and-pages";
+
+/*--------------------------------------------------------------
+## Asides
+--------------------------------------------------------------*/
+@import "primary/asides";
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+@import "primary/comments";
+
+
+body {
+    background: $color__background-body;
+}
+
+//header - /elements/_header.scss
+
+#secondary {
+    background: $color__background-ins;
+}
