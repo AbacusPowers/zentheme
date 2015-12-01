@@ -15,7 +15,7 @@ address {
 }
 
 pre {
-	background: $color__background-pre;
+	background: $secondary-background;
 	font-family: $font__pre;
 	@include font-size(0.9375);
 	line-height: $font__line-height-pre;
@@ -31,12 +31,12 @@ code, kbd, tt, var {
 }
 
 abbr, acronym {
-	border-bottom: 1px dotted $color__border-abbr;
+	border-bottom: 1px dotted $text-black-tertiary;
 	cursor: help;
 }
 
 mark, ins {
-	background: $color__background-ins;
+	background: $secondary-light;
 	text-decoration: none;
 }
 

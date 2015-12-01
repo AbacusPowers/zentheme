@@ -8,6 +8,10 @@ body {
 	margin: 0;
 }
 
+html, body {
+	height: 100%;
+}
+
 article,
 aside,
 details,
@@ -102,7 +106,7 @@ svg:not(:root) {
 }
 
 figure {
-	margin: 1em 40px;
+	margin: 0;
 }
 
 hr {

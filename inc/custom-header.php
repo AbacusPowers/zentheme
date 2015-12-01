@@ -25,7 +25,7 @@
 function zentheme_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'zentheme_custom_header_args', array(
 		'default-image'          => '',
-		'default-text-color'     => '000000',
+		'default-text-color'     => 'FFFFFF',
 		'width'                  => 1000,
 		'height'                 => 400,
 		'flex-height'            => true,

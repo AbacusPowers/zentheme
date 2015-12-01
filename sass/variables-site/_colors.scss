@@ -1,20 +1,46 @@
-$color__background-body: #2980b9;
-$color__background-screen: #f1f1f1;
-$color__background-hr: #ccc;
-$color__background-button: #e6e6e6;
-$color__background-pre: #eee;
-$color__background-ins: #7f8c8d;
+//zentheme material design palette
+//https://www.google.com/design/spec/style/color.html#color-ui-color-application
 
-$color__text-screen: #21759b;
-$color__text-input: #666;
-$color__text-input-focus: #111;
-$color__link: #2c3e50;
-$color__link-visited: #354b61;
-$color__link-hover: #202d3a;
-$color__text-main: #ecf0f1;
+//$primary: #00BCD4;
+//$primary-light: #B2EBf2;
+//$primary-medium: #4DD0E1;
+//$primary-heavy: #00838F;
 
-$color__border-button: #ccc #ccc #bbb;
-$color__border-button-hover: #ccc #bbb #aaa;
-$color__border-button-focus: #aaa #bbb #bbb;
-$color__border-input: #ccc;
-$color__border-abbr: #666;
+$primary: #E87B46;
+$primary-light: #E8A687;
+$primary-medium: #E8A382;
+$primary-heavy: #E85813;
+
+
+//$secondary: #FFC107;
+//$secondary-light: #FFE082;
+//$secondary-medium: #FFD54F;
+//$secondary-hover: #FFB300;
+//$secondary-focus: #FFA000;
+
+$secondary: #8BC34A;
+$secondary-light: #DCEDC8;
+$secondary-medium: #AED581;
+$secondary-hover: #689F38;
+$secondary-focus: #558B2F;
+
+
+$text-black-primary: rgba(black,0.87);
+$text-black-secondary: rgba(black, 0.54);
+$text-black-tertiary: rgba(black,0.38);
+
+$text-white-primary: white;
+$text-white-secondary: rgba(white, 0.7);
+$text-white-tertiary: rgba(white, 0.3);
+
+$text: $text-black-primary;
+
+$black-icon: black;
+$gray-icon: $text-black-secondary;
+$white-icon: white;
+
+$status-bar-background: $primary-heavy;
+$header-background: $primary;
+$body-background: #FAFAFA;
+$content-background: #FFFFFF;
+$secondary-background: #E0E0E0;

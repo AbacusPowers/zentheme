@@ -15,10 +15,12 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'zentheme' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'zentheme' ), 'WordPress' ); ?></a>
+<!--			<a href="--><?php //echo esc_url( __( 'https://wordpress.org/', 'zentheme' ) ); ?><!--">--><?php //printf( esc_html__( 'Proudly powered by %s', 'zentheme' ), 'WordPress' ); ?><!--</a>-->
+			<span class="copyright">&copy; 2015 Justin Maurer</span>
 			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'zentheme' ), 'zentheme', '<a href="http://360zen.com/" rel="designer">Justin Maurer</a>' ); ?>
+			Zentheme by <a href="<?php echo esc_url( __('http://360zen.com/','zentheme') ); ?>" rel="designer">Justin Maurer</a>
 		</div><!-- .site-info -->
+		<button class="fab to-top" alt="Scroll to the top, please" title="Scroll to the top, please"><i class="material-icons">arrow_upward</i></button>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

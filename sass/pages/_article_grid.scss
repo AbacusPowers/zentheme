@@ -1,0 +1,18 @@
+.article-grid {
+	.card {
+		@include span(1 of 2 1/64);
+		.breakpoint-small & {
+			@include span(1 of 1);
+		}
+		&:nth-of-type(even) {
+			@include last;
+			&.takeover {
+				@include last;
+			}
+		}
+		&:nth-of-type(odd) {
+			clear: both;
+		}
+
+	}
+}

@@ -1,0 +1,24 @@
+.single-post .nav-links {
+	padding: 1rem 0;
+	width: 100%;
+	@include clearfix;
+	a {
+		display: inline-block;
+		background: $text-black-tertiary;
+		padding: 1rem;
+		color: $text-white-primary;
+		&:hover {
+			background: $text-black-secondary;
+			border-bottom: 0;
+		}
+	}
+	div.nav-previous {
+		@include span(1 of 2);
+	}
+	div.nav-next {
+		@include span(1 of 2);
+		@include last;
+		text-align: right;
+	}
+
+}

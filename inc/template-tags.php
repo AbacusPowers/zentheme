@@ -45,6 +45,7 @@ if ( ! function_exists( 'zentheme_entry_footer' ) ) :
  */
 function zentheme_entry_footer() {
 	// Hide category and tag text for pages.
+	echo '<div class="footer-meta--left">';
 	if ( 'post' === get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'zentheme' ) );
@@ -58,22 +59,14 @@ function zentheme_entry_footer() {
 			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'zentheme' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
-
+	echo '</div><div class="footer-meta--right">';
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
 		comments_popup_link( esc_html__( 'Leave a comment', 'zentheme' ), esc_html__( '1 Comment', 'zentheme' ), esc_html__( '% Comments', 'zentheme' ) );
 		echo '</span>';
 	}
+	echo '</div>';
 
-	edit_post_link(
-		sprintf(
-			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'zentheme' ),
-			the_title( '<span class="screen-reader-text">"', '"</span>', false )
-		),
-		'<span class="edit-link">',
-		'</span>'
-	);
 }
 endif;
 

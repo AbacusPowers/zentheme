@@ -3,10 +3,21 @@ button,
 input,
 select,
 textarea {
-	color: $color__text-main;
+	color: $text-black-primary;
 	font-family: $font__main;
 	@include font-size(1);
 	line-height: $font__line-height-body;
+}
+
+h1 {
+	margin: 0;
+	color: $text-black-secondary;
+	//font-size: 24px;
+}
+
+h2 {
+	font-weight: $font-weight__light;
+	margin-bottom: 0;
 }
 
 @import "headings";

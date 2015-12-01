@@ -1,0 +1,25 @@
+.widget {
+	.widget-title {
+		margin-bottom: 0.25em;
+		a, a:visited {
+			color: $primary;
+			&:hover {
+				color: $primary-heavy;
+				border-color: $primary-heavy;
+			}
+		}
+	}
+
+	.upw-posts {
+		.entry-title {
+			margin: 0;
+		}
+		a:hover, a:focus, .entry-title a:focus, .entry-title a:hover {
+			text-decoration: none;
+		}
+		.entry-summary {
+			margin-top: 0;
+
+		}
+	}
+}

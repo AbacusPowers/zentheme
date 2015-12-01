@@ -1,0 +1,15 @@
+.pagination {
+	clear: both;
+	text-align: center;
+	.page-numbers {
+		display: none;
+		&.next {
+			display: inline-block;
+			@extend .button;
+			@include shadow-floating;
+			&:hover {
+				@include shadow-resting;
+			}
+		}
+	}
+}

@@ -1,0 +1,151 @@
+.card {
+    @include shadow-resting;
+
+    background: $content-background;
+    &.sticky {
+        background: $secondary-medium;
+        color: $text-black-secondary;
+        header a {
+            color: $text-black-secondary;
+        }
+        .card-container {
+            background: $secondary-medium;
+        }
+        .destroy-card {
+            color: $text-black-secondary;
+            &:hover {
+                color: $text-black-primary;
+            }
+        }
+    }
+    border-radius: 5px;
+    display: block;
+    margin: 0 0 10px;
+    .breakpoint-small & {
+        box-shadow: none;
+        &:hover {
+            box-shadow: none;
+        }
+        margin: 0;
+        border-bottom: 2px solid $body-background;
+    }
+    position: relative;
+
+    &:hover {
+        @include shadow-floating;
+    }
+    .card-container {
+        background: $content-background;
+        border-radius: 5px;
+
+    }
+    &.expanded .card-container{
+        overflow: scroll;
+    }
+    .post-thumbnail-container {
+        max-height: 300px;
+        overflow: hidden;
+    }
+    img.wp-post-image {
+        border-radius: 4px 4px 0 0;
+        width: 100%;
+    }
+    &.expanded img.wp-post-image {
+        max-height: 600px;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    .destroy-card {
+        position: absolute;
+        //top: -2rem;
+        top: 3px;
+        left: 3px;
+        color: $secondary;
+        visibility: hidden;
+        opacity: 0;
+        transition: all .15s ease-in-out;
+        text-shadow: 1px 1px 5px rgba(150, 150, 150, 0.7);
+        z-index: 500;
+        &:hover {
+            border-bottom: $white-icon;
+            color: $secondary-hover;
+        }
+    }
+    &:hover {
+        .destroy-card {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    header {
+        padding: 0 1rem;
+        color: $text-black-primary;
+        overflow: auto;
+        a {
+            color: $text-black-primary;
+        }
+        .entry-meta {
+            color: $text-black-tertiary;
+            a {
+                color: $text-black-tertiary;
+                &:hover{
+                    color: $text-black-secondary;
+                }
+            }
+        }
+        .edit-link {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            a {
+                color: $text-black-secondary;
+                opacity: 0;
+                &:hover {
+                    opacity: 1;
+                    border-bottom: 0;
+                    background: $text-white-tertiary;
+                }
+            }
+
+        }
+    }
+    .entry-content {
+        padding: 0 1rem;
+        margin-top: 0;
+    }
+    .entry-footer {
+        padding: 0 1rem 1rem;
+        width: 100%;
+        position: relative;
+        @include clearfix;
+
+        .footer-meta--left {
+            display: block;
+
+            .tags-links, .cat-links {
+                font-size: 0.75rem;
+                color: $text-black-tertiary;
+                display: block;
+                a {
+                    color: $text-black-secondary;
+                    &:hover {
+                        color: $text-black-primary;
+                    }
+                }
+            }
+        }
+        .footer-meta--right {
+            display: block;
+            float: right;
+            .comments-link {
+                //float: right;
+                //display:block;
+            }
+            .comments-link a {
+                font-weight: $font-weight__heavy;
+                text-transform: uppercase;
+            }
+        }
+    }
+}

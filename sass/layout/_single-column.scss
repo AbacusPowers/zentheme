@@ -18,6 +18,9 @@
 }
 
 .site-footer {
+  @include container(1000px);
+  display: block;
   clear: both;
+  overflow: hidden;
   width: $size__site-main;
 }

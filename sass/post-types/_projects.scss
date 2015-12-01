@@ -1,0 +1,46 @@
+.project, .type-project {
+	background: $content-background;
+	.single & {
+		padding: 1rem;
+	}
+	header {
+		.entry-meta {
+			ul {
+				list-style: none;
+				margin: 0;
+				text-align: justify;
+				padding-bottom: 0.2em; //so hover states don't get cut off
+				li {
+					display: inline-block;
+					@include font-size(0.8);
+					background: $primary-medium;
+					color: $text-white-primary;
+					padding: 0 1em;
+					-webkit-transition: all .1s cubic-bezier(0.445, 0.050, 0.550, 0.950);
+					-moz-transition: all .1s cubic-bezier(0.445, 0.050, 0.550, 0.950);
+					-o-transition: all .1s cubic-bezier(0.445, 0.050, 0.550, 0.950);
+					transition: all .1s cubic-bezier(0.445, 0.050, 0.550, 0.950); /* easeInOutSine */
+
+					-webkit-transition-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+					-moz-transition-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+					-o-transition-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+					transition-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950); /* easeInOutSine */
+					&:hover {
+						transform: scale(1.2);
+						background: $primary;
+					}
+					&:active {
+						background: $primary-heavy;
+					}
+					a {
+						color: $text-white-primary;
+						&:hover, &:focus, &:active {
+							color: $text-white-primary;
+							border-bottom: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

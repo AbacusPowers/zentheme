@@ -9,7 +9,7 @@ html {
 }
 
 body {
-	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+	background: $body-background; /* Fallback for when there is no custom background color defined. */
 }
 
 blockquote, q {
@@ -22,7 +22,7 @@ blockquote, q {
 }
 
 hr {
-	background-color: $color__background-hr;
+	background-color: $secondary;
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
@@ -37,4 +37,16 @@ img {
 
 @import "tables";
 
+@import "card";
+
 @import "header";
+
+@import "modal";
+
+@import "loading";
+
+@import "comments-popup";
+
+@import "forms";
+
+@import "widgets";

@@ -19,6 +19,12 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+		<?php
+		// check if the post has a Post Thumbnail assigned to it.
+		if ( has_post_thumbnail() ) {
+			the_post_thumbnail();
+		}
+		?>
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(

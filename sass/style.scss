@@ -1,14 +1,14 @@
 /*!
-Theme Name: Zen Theme Alpha
-Theme URI: http://underscores.me/
+Theme Name: ZenTheme
+Theme URI: http://360zen.com
 Author: Justin Maurer
 Author URI: http://360zen.com/
 Description: Custom theme: Zen Theme Alpha developed by, Justin Maurer
-Version: 1.0.0
+Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: zentheme
-Tags:
+Tags: light, orange, green, one-column, fluid-layout, responsive-layout, custom-background, featured-images, translation-ready, sticky-post
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -44,7 +44,11 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Galleries
 --------------------------------------------------------------*/
 
+/*--------------------------------------------------------------
+# Susy
+--------------------------------------------------------------*/
 @import "../bower_components/susy/sass/susy";
+
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
 
@@ -52,6 +56,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Normalize
 --------------------------------------------------------------*/
 @import "normalize";
+@import "zenNormalize";
 
 /*--------------------------------------------------------------
 # Typography
@@ -107,3 +112,13 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Media
 --------------------------------------------------------------*/
 @import "media/media";
+
+/*--------------------------------------------------------------
+# Pages
+--------------------------------------------------------------*/
+@import "pages/pages";
+
+/*--------------------------------------------------------------
+# Post Types
+--------------------------------------------------------------*/
+@import "post-types/post-types";

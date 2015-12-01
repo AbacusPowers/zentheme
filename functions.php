@@ -76,6 +76,10 @@ function zentheme_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+//	add_theme_support( 'infinite-scroll', array(
+//			'container'    => 'main',
+//	) );
 }
 endif; // zentheme_setup
 add_action( 'after_setup_theme', 'zentheme_setup' );
@@ -107,6 +111,24 @@ function zentheme_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+			'name'          => esc_html__( 'Resume Footer', 'zentheme' ),
+			'id'            => 'resume-footer',
+			'description'   => '',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+			'name'          => esc_html__( 'Portfolio Footer', 'zentheme' ),
+			'id'            => 'portfolio-footer',
+			'description'   => '',
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'zentheme_widgets_init' );
 
@@ -114,15 +136,57 @@ add_action( 'widgets_init', 'zentheme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function zentheme_scripts() {
+
+	//dependencies/libraries
+	wp_deregister_script( 'jquery' );
+	wp_enqueue_script( 'jquery', ( 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' ), false, null, false );
+	wp_enqueue_script( 'jquery-ui', ( 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js' ), false, null, false );
+
+	wp_enqueue_script( 'metaquery', get_template_directory_uri() . '/bower_components/metaquery/metaquery.min.js', array(), '', true );
+
+	wp_enqueue_script( 'history-js', get_template_directory_uri() . '/bower_components/history.js/scripts/bundled/html4+html5/jquery.history.js', array(), '', true );
+
+	wp_enqueue_script( 'waypoints', get_template_directory_uri() . '/bower_components/waypoints/lib/jquery.waypoints.js', array(), '', true );
+	wp_enqueue_script( 'waypoints-sticky', get_template_directory_uri() . '/bower_components/waypoints/lib/shortcuts/sticky.min.js', array(), '', true );
+
+	//custom scripts and styles
 	wp_enqueue_style( 'zentheme-style', get_stylesheet_uri() );
+
+	wp_enqueue_style( 'material-design-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons' );
+
+	wp_enqueue_style( 'jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css' );
 
 	wp_enqueue_script( 'zentheme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
+	wp_enqueue_script( 'zentheme-cards', get_template_directory_uri() . '/js/cards.js', array(), '', true );
+
 	wp_enqueue_script( 'zentheme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+
+	wp_enqueue_script( 'zentheme-ajax-pagination',  get_template_directory_uri() . '/js/ajax-pagination.js', array( 'jquery' ), '1.0', true );
+
+	wp_enqueue_script( 'zentheme-ajax-gallery',  get_template_directory_uri() . '/js/ajax-gallery.js', array( 'jquery' ), '1.0', true );
+
+//	wp_enqueue_script( 'zentheme-ajax-get-post',  get_template_directory_uri() . '/js/ajax-get-post.js', array( 'jquery' ), '1.0', true );
+
+	wp_enqueue_script( 'zentheme-ajax-modal',  get_template_directory_uri() . '/js/ajax-modal.js', array( 'jquery' ), '1.0', true );
+
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	/**
+	 * Localize AJAX scripts here
+	 */
+	$ajax_url = admin_url( 'admin-ajax.php' );
+	global $wp_query;
+	$query_vars = json_encode( $wp_query->query_vars );
+//	var_dump($wp_query->query_vars);
+	wp_localize_script('zentheme-ajax-pagination','ajaxpagination', array(
+			'ajaxurl' => $ajax_url,
+			'query_vars' => $query_vars
+	));
+	wp_localize_script('zentheme-ajax-ajaxgetpost','ajaxgetpost', array());
 }
 add_action( 'wp_enqueue_scripts', 'zentheme_scripts' );
 
@@ -150,3 +214,176 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+//require CMB2 files
+if ( file_exists(  __DIR__ . '/cmb2/init.php' ) ) {
+	require_once  __DIR__ . '/cmb2/init.php';
+}
+
+require get_template_directory() . '/options.php';
+
+/*********************
+RANDOM CLEANUP ITEMS
+ *********************/
+
+// remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
+function zentheme_filter_ptags_on_images($content){
+	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+}
+
+// This removes the annoying […] to a Read More link
+function zentheme_excerpt_more($more) {
+	global $post;
+	// edit here if you like
+	return '...  <a class="excerpt-read-more" href="'. get_permalink( $post->ID ) . '" title="'. __( 'Read ', 'zentheme' ) . esc_attr( get_the_title( $post->ID ) ).'">'. __( 'Read more &raquo;', 'zentheme' ) .'</a>';
+}
+add_filter( 'excerpt_more', 'zentheme_excerpt_more' );
+
+function zentheme_excerpt_length($length) {
+	return 20;
+}
+add_filter('excerpt_length','zentheme_excerpt_length',999);
+
+/***************
+IMAGE SIZES
+ ***************/
+add_filter( 'image_size_names_choose', 'zentheme_custom_image_sizes' );
+
+add_image_size( 'card-min', 480, 300, true );
+add_image_size( 'card-max', 960, 600, true );
+
+function zentheme_custom_image_sizes( $sizes ) {
+	return array_merge( $sizes, array(
+			'card-min' => __('480px by 300px','zentheme'),
+			'card-max' => __('960px by 600px','zentheme'),
+	) );
+}
+
+/***************
+POST TYPE AS HOME PAGE
+***************/
+//add_action("pre_get_posts", "custom_front_page");
+//function custom_front_page($wp_query){
+//	//Ensure this filter isn't applied to the admin area
+//	if(is_admin()) {
+//		return;
+//	}
+//
+//	if($wp_query->get('page_id') == get_option('page_on_front')):
+//
+//		$wp_query->set('post_type', 'project');
+//		$wp_query->set('page_id', ''); //Empty
+//
+//		//Set properties that describe the page to reflect that
+//		//we aren't really displaying a static page
+//		$wp_query->is_page = 0;
+//		$wp_query->is_singular = 0;
+//		$wp_query->is_post_type_archive = 1;
+//		$wp_query->is_archive = 1;
+//
+//	endif;
+//}
+/*********************
+PAGE NAVI
+ *********************/
+
+// Numeric Page Navi (built into the theme by default)
+function zentheme_page_navi() {
+	global $wp_query;
+	$bignum = 999999999;
+	if ( $wp_query->max_num_pages <= 1 )
+		return;
+	echo '<nav class="pagination">';
+	echo paginate_links( array(
+			'base'         => str_replace( $bignum, '%#%', esc_url( get_pagenum_link($bignum) ) ),
+			'format'       => '',
+			'current'      => max( 1, get_query_var('paged') ),
+			'total'        => $wp_query->max_num_pages,
+			'prev_text'    => '&larr;',
+			'next_text'    => '&rarr;',
+			'type'         => 'list',
+			'end_size'     => 3,
+			'mid_size'     => 3
+	) );
+	echo '</nav>';
+} /* end page navi */
+
+
+/***************
+ AJAX FUNCTIONS
+***************/
+
+add_action( 'wp_ajax_nopriv_ajax_pagination','zentheme_ajax_pagination');
+add_action( 'wp_ajax_ajax_pagination','zentheme_ajax_pagination');
+
+function zentheme_ajax_pagination(){
+	$query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
+
+	$query_vars['paged'] = $_POST['page'];
+	$query_vars['post_status'] = 'publish';
+
+	$posts = new WP_Query( $query_vars );
+	$GLOBALS['wp_query'] = $posts;
+
+	add_filter( 'editor_max_image_size', 'my_image_size_override' );
+
+	if( ! $posts->have_posts() ) {
+		get_template_part( 'template-parts/content', 'none' );
+	}
+	else {
+		while ( $posts->have_posts() ) {
+			$posts->the_post();
+			get_template_part( 'template-parts/card', get_post_format() );
+		}
+	}
+	remove_filter( 'editor_max_image_size', 'my_image_size_override' );
+
+	the_posts_pagination( array(
+			'mid_size' 			 => 0,
+			'prev_text'          => __( 'Previous page', 'zentheme' ),
+			'next_text'          => __( 'More posts', 'zentheme' ),
+			'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'zentheme' ) . ' </span>',
+	) );
+
+	die();
+}
+
+function my_image_size_override() {
+	return array( 825, 510 );
+}
+
+add_action( 'wp_ajax_nopriv_ajax_get_post','zentheme_ajax_get_post');
+add_action( 'wp_ajax_ajax_get_post','zentheme_ajax_get_post');
+
+function zentheme_ajax_get_post(){
+	$args = array(
+		'p' => $_POST['post_id']
+	);
+	$post = new WP_Query( $args );
+	if( $post->have_posts() ) :	while( $post->have_posts() ) : $post->the_post();
+		get_template_part('template-parts/content','single');
+	endwhile; endif;
+
+	die();
+
+}
+
+add_action( 'wp_ajax_nopriv_ajax_get_project','zentheme_ajax_get_project');
+add_action( 'wp_ajax_ajax_get_project','zentheme_ajax_get_project');
+function zentheme_ajax_get_project(){
+	$args = array(
+			'p' => $_POST['post_id'],
+			'post_type' => 'project'
+	);
+//	var_dump($args);
+	$post = new WP_Query( $args );
+	if( $post->have_posts() ) :	while( $post->have_posts() ) : $post->the_post();
+		get_template_part('template-parts/content','project');
+	endwhile;
+	else : var_dump('failure');
+	endif;
+
+	die();
+
+}
+

@@ -1,7 +1,57 @@
-//header
 #masthead {
-  margin-top: 3em;
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
+	//height: 260px;
+	position: fixed;
+	top: 0;
+	@include shadow-site-header;
+	.admin-bar & {
+		top: 32px;
+		@media screen and (min-width: 600px) and (max-width: 782px) {
+			top: 46px;
+		}
+		@media screen and (max-width: 600px) {
+			top: 0;
+		}
+	}
+	left: 0;
+	right: 0;
+	padding: 0 1rem;
+	background-color: $primary;
+	z-index: 1000;
+	height: 160px;
+	text-align: center;
+	.breakpoint-small & {
+		height: auto;
+		padding: 1rem;
+	}
+	.site-branding {
+		display: inline-block;
+		padding: 0.25rem 0;
+		.breakpoint-small & {
+			height: 140px;
+			display: block;
+
+		}
+		height: 100%;
+		//@include span(1 of 3);
+
+		.breakpoint-small & {
+
+			#masthead-logo {
+				//height: auto;
+				//width: 60%;
+				margin: 0 auto;
+			}
+		}
+
+		#masthead-logo {
+			height: 100%;
+			display: block;
+			margin: 0 auto;
+			max-width: none;
+
+			&.scrolled {
+				max-height: 100%;
+			}
+		}
+	}
 }

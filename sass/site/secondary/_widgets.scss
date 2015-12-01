@@ -1,14 +1,18 @@
 .widget {
-  	float: left;
-	margin: 0 0 1.5em;
-  	width: 25%;
+  	@include span(1 of 2 1/32);
   	padding: 1em;
-	&:nth-child(4n+1) {
+	&:nth-child(2n) {
+		@include last;
+	}
+	&:nth-child(2n+1) {
 	  clear: both;
 	}
 
 	/* Make sure select elements fit in widgets. */
 	select {
 		max-width: 100%;
+	}
+	.breakpoint-small & {
+		@include span(1 of 1);
 	}
 }
