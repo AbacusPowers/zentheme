@@ -387,3 +387,11 @@ function zentheme_ajax_get_project(){
 
 }
 
+/***************
+ * UPDATES via KERNL
+ ***************/
+require 'theme_update_check.php';
+$MyUpdateChecker = new ThemeUpdateChecker(
+		'zentheme',
+		'https://kernl.us/api/v1/theme-updates/565e651ab731728f79f6a4f5/'
+);
