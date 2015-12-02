@@ -156,6 +156,8 @@ function zentheme_scripts() {
 
 	wp_enqueue_style( 'jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css' );
 
+	wp_enqueue_script( 'prism-js', get_template_directory_uri() . '/js/vendor/prism/prism.js', array(), '', true );
+
 	wp_enqueue_script( 'zentheme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'zentheme-cards', get_template_directory_uri() . '/js/cards.js', array(), '', true );

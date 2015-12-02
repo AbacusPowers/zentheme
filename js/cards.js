@@ -3,7 +3,7 @@
  */
 (function($) {
     $(document).on('click','.destroy-card',function(){
-        $(this).closest('.card').remove();
+        $(this).closest('.card').slideToggle({ duration: 1000, easing: 'easeOutQuint' });
     })
 })( jQuery );
 
