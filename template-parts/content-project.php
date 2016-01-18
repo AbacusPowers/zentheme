@@ -7,6 +7,8 @@
  * @package Zen_Theme_Alpha
  */
 $languages = get_post_meta(get_the_ID(), '_zenerator_languages');
+$images = get_children();
+$features = get_post_meta(get_the_ID(), '_zenerator_features')
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -21,12 +23,29 @@ $languages = get_post_meta(get_the_ID(), '_zenerator_languages');
 
 	<div class="entry-content">
 		<?php
-		// check if the post has a Post Thumbnail assigned to it.
-		if ( has_post_thumbnail() ) {
-			the_post_thumbnail();
-		}
+			// check if the post has a Post Thumbnail assigned to it.
+			if ( has_post_thumbnail() ) {
+				the_post_thumbnail();
+			}
 		?>
-		<?php the_content(); ?>
+		<?php
+			the_content();
+
+			echo '<h2>Features</h2><ul>';
+			foreach($features[0] as $feature) {
+				echo '<li>' . $feature . '</li>';
+			}
+			echo '</ul>';
+			$gallery_shortcode = '[gallery id="' . get_the_ID() . '"]';
+
+			print apply_filters( 'the_content', $gallery_shortcode );
+		?>
+		<?php
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+		?>
 		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'zentheme' ),

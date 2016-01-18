@@ -73,14 +73,59 @@ video#bgvid {
     background-size: cover;
 }
 
-
+#primary .type-post, #primary .type-project {
+    .single &, #modal & {
+        .breakpoint-large &, .breakpoint-wide & {
+            padding: 5rem;
+        }
+        .breakpoint-medium & {
+            padding: 2rem;
+        }
+        .breakpoint-small & {
+            padding: 1rem;
+        }
+        .wp-post-image {
+            max-width: 50%;
+            float: left;
+            margin: 0 1rem 1rem 0;
+        }
+        .entry-content {
+            p {
+                margin-top: 0;
+            }
+        }
+    }
+}
+#primary .type-page {
+    .page & {
+        .breakpoint-large &, .breakpoint-wide & {
+            padding: 2rem 5rem;
+        }
+        .breakpoint-medium & {
+            padding: 2rem;
+        }
+        .breakpoint-small & {
+            padding: 1rem;
+        }
+        .wp-post-image {
+            max-width: 50%;
+            float: left;
+            margin: 0 1rem 1rem 0;
+        }
+        .entry-content {
+            p {
+                margin-top: 0;
+            }
+        }
+    }
+}
 .single #primary, .page #primary {
     h1.entry-title {
         color: $primary;
     }
     article.page, article.post {
         background: $content-background;
-        padding: 1rem;
+        //padding: 1rem;
     }
     .content-area {
         iframe {

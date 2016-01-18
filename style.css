@@ -406,9 +406,6 @@ h2 {
   font-weight: 300;
   margin-bottom: 0; }
 
-h1, h2, h3, h4, h5, h6 {
-  clear: both; }
-
 p {
   margin-bottom: 1.5em; }
 
@@ -1160,6 +1157,10 @@ a {
   clear: both;
   margin: 0 0 1.5em; }
 
+.post .gallery, .project .gallery {
+  clear: both;
+  margin-top: 1rem; }
+
 /*--------------------------------------------------------------
 ## Asides
 --------------------------------------------------------------*/
@@ -1223,11 +1224,36 @@ video#bgvid {
   background: no-repeat;
   background-size: cover; }
 
+.breakpoint-large .single #primary .type-post, .breakpoint-wide .single #primary .type-post, .breakpoint-large #modal #primary .type-post, .breakpoint-wide #modal #primary .type-post, .breakpoint-large .single #primary .type-project, .breakpoint-wide .single #primary .type-project, .breakpoint-large #modal #primary .type-project, .breakpoint-wide #modal #primary .type-project {
+  padding: 5rem; }
+.breakpoint-medium .single #primary .type-post, .breakpoint-medium #modal #primary .type-post, .breakpoint-medium .single #primary .type-project, .breakpoint-medium #modal #primary .type-project {
+  padding: 2rem; }
+.breakpoint-small .single #primary .type-post, .breakpoint-small #modal #primary .type-post, .breakpoint-small .single #primary .type-project, .breakpoint-small #modal #primary .type-project {
+  padding: 1rem; }
+.single #primary .type-post .wp-post-image, #modal #primary .type-post .wp-post-image, .single #primary .type-project .wp-post-image, #modal #primary .type-project .wp-post-image {
+  max-width: 50%;
+  float: left;
+  margin: 0 1rem 1rem 0; }
+.single #primary .type-post .entry-content p, #modal #primary .type-post .entry-content p, .single #primary .type-project .entry-content p, #modal #primary .type-project .entry-content p {
+  margin-top: 0; }
+
+.breakpoint-large .page #primary .type-page, .breakpoint-wide .page #primary .type-page {
+  padding: 2rem 5rem; }
+.breakpoint-medium .page #primary .type-page {
+  padding: 2rem; }
+.breakpoint-small .page #primary .type-page {
+  padding: 1rem; }
+.page #primary .type-page .wp-post-image {
+  max-width: 50%;
+  float: left;
+  margin: 0 1rem 1rem 0; }
+.page #primary .type-page .entry-content p {
+  margin-top: 0; }
+
 .single #primary h1.entry-title, .page #primary h1.entry-title {
   color: #E87B46; }
 .single #primary article.page, .single #primary article.post, .page #primary article.page, .page #primary article.post {
-  background: #FFFFFF;
-  padding: 1rem; }
+  background: #FFFFFF; }
 .single #primary .content-area iframe, .page #primary .content-area iframe {
   padding: 0 3rem; }
   .breakpoint-small .single #primary .content-area iframe, .breakpoint-small .page #primary .content-area iframe {
@@ -1299,7 +1325,8 @@ object {
   display: inline-block;
   text-align: center;
   vertical-align: top;
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 1rem; }
   .gallery-columns-2 .gallery-item {
     max-width: 50%; }
   .gallery-columns-3 .gallery-item {
@@ -1316,6 +1343,8 @@ object {
     max-width: 12.5%; }
   .gallery-columns-9 .gallery-item {
     max-width: 11.11%; }
+  .gallery-item img {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7); }
 
 .gallery-caption {
   display: block; }
@@ -1349,8 +1378,6 @@ object {
 --------------------------------------------------------------*/
 .project, .type-project {
   background: #FFFFFF; }
-  .single .project, .single .type-project {
-    padding: 1rem; }
   .project header .entry-meta ul, .type-project header .entry-meta ul {
     list-style: none;
     margin: 0;

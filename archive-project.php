@@ -36,7 +36,12 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php the_posts_navigation(); ?>
+			<?php the_posts_pagination( array(
+					'mid_size' 			 => 0,
+					'prev_text'          => __( 'Previous page', 'zentheme' ),
+					'next_text'          => __( 'More posts', 'zentheme' ),
+					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'zentheme' ) . ' </span>',
+			) ); ?>
 
 		<?php else : ?>
 

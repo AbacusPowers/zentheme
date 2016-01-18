@@ -3,13 +3,15 @@
  */
 window.showModal = function(){
     jQuery('#overlay').show();
-    jQuery('#modal').show('scale',{easing:'easeOutCirc'});
+    jQuery('#modal').show('scale',{duration: 300, easing:'easeOutCubic'});
     jQuery('body').addClass('article-view');
     jQuery('#modal-wrapper').addClass('article');
+    //re-run Prism's code highlighter
+    Prism.highlightAll();
 };
 window.destroyModal = function(){
     jQuery('#overlay').hide();
-    jQuery('#modal').hide('scale',{easing:'easeInCirc'});
+    jQuery('#modal').hide('scale',{duration: 300, easing:'easeInCubic'});
     jQuery('#offsite-modal').hide();
     jQuery('body').removeClass('article-view');
 };

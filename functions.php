@@ -84,6 +84,15 @@ function zentheme_setup() {
 endif; // zentheme_setup
 add_action( 'after_setup_theme', 'zentheme_setup' );
 
+/***************
+ * UPDATES via KERNL
+ ***************/
+require 'theme_update_check.php';
+$MyUpdateChecker = new ThemeUpdateChecker(
+		'zentheme',
+		'https://kernl.us/api/v1/theme-updates/565e651ab731728f79f6a4f5/'
+);
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
@@ -155,6 +164,8 @@ function zentheme_scripts() {
 	wp_enqueue_style( 'material-design-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons' );
 
 	wp_enqueue_style( 'jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css' );
+
+//	wp_enqueue_style( 'prism-css', get_template_directory_uri() . '/css/vendor/prism/themes/twilight.css' );
 
 	wp_enqueue_script( 'prism-js', get_template_directory_uri() . '/js/vendor/prism/prism.js', array(), '', true );
 
@@ -261,30 +272,6 @@ function zentheme_custom_image_sizes( $sizes ) {
 	) );
 }
 
-/***************
-POST TYPE AS HOME PAGE
-***************/
-//add_action("pre_get_posts", "custom_front_page");
-//function custom_front_page($wp_query){
-//	//Ensure this filter isn't applied to the admin area
-//	if(is_admin()) {
-//		return;
-//	}
-//
-//	if($wp_query->get('page_id') == get_option('page_on_front')):
-//
-//		$wp_query->set('post_type', 'project');
-//		$wp_query->set('page_id', ''); //Empty
-//
-//		//Set properties that describe the page to reflect that
-//		//we aren't really displaying a static page
-//		$wp_query->is_page = 0;
-//		$wp_query->is_singular = 0;
-//		$wp_query->is_post_type_archive = 1;
-//		$wp_query->is_archive = 1;
-//
-//	endif;
-//}
 /*********************
 PAGE NAVI
  *********************/
@@ -389,11 +376,19 @@ function zentheme_ajax_get_project(){
 
 }
 
-/***************
- * UPDATES via KERNL
- ***************/
-require 'theme_update_check.php';
-$MyUpdateChecker = new ThemeUpdateChecker(
-		'zentheme',
-		'https://kernl.us/api/v1/theme-updates/565e651ab731728f79f6a4f5/'
-);
+
+/**
+ * @param $query
+ */
+function zentheme_project_pagesize($query ) {
+	if ( is_admin() || ! $query->is_main_query() )
+		return;
+
+	if ( is_post_type_archive( 'project' ) ) {
+		// Display 50 posts for a custom post type called 'movie'
+		$query->set( 'posts_per_page', 50 );
+//		$query->set( 'orderby', 'date');
+		return;
+	}
+}
+add_action( 'pre_get_posts', 'zentheme_project_pagesize', 1 );
