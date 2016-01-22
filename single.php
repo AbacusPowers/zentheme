@@ -22,8 +22,6 @@ get_header(); ?>
 						'next_text' => '%title &rarr;')
 			); ?>
 
-
-
 		<?php endwhile; // End of the loop. ?>
 
 		</main><!-- #main -->

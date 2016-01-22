@@ -1,4 +1,4 @@
-.single-post .nav-links {
+.single-post .nav-links, .single-project .nav-links {
 	padding: 1rem 0;
 	width: 100%;
 	@include clearfix;
@@ -8,7 +8,7 @@
 		padding: 1rem;
 		color: $text-white-primary;
 		&:hover {
-			background: $text-black-secondary;
+			background: $text-white-secondary;
 			border-bottom: 0;
 		}
 	}
@@ -20,5 +20,11 @@
 		@include last;
 		text-align: right;
 	}
-
+}
+.single #modal {
+	.nav-links, .nav-links {
+		a:hover {
+			background: $text-black-secondary;
+		}
+	}
 }

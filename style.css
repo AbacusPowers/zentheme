@@ -720,7 +720,7 @@ body.article-view {
     bottom: 0;
     background: rgba(255, 255, 255, 0.7); }
   #modal.loading:after {
-    content: url("img/gif/495.GIF");
+    content: url("img/gif/zen-spinner.GIF");
     position: absolute;
     top: 50%;
     margin-top: -32px;
@@ -965,31 +965,34 @@ a {
 /*--------------------------------------------------------------
 ## Article/Post Navigation
 --------------------------------------------------------------*/
-.single-post .nav-links {
+.single-post .nav-links, .single-project .nav-links {
   padding: 1rem 0;
   width: 100%;
   content: "";
   display: table;
   table-layout: fixed; }
-  .single-post .nav-links a {
+  .single-post .nav-links a, .single-project .nav-links a {
     display: inline-block;
     background: rgba(0, 0, 0, 0.38);
     padding: 1rem;
     color: white; }
-    .single-post .nav-links a:hover {
-      background: rgba(0, 0, 0, 0.54);
+    .single-post .nav-links a:hover, .single-project .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.7);
       border-bottom: 0; }
-  .single-post .nav-links div.nav-previous {
+  .single-post .nav-links div.nav-previous, .single-project .nav-links div.nav-previous {
     width: 44.44444%;
     float: left;
     margin-right: 11.11111%; }
-  .single-post .nav-links div.nav-next {
+  .single-post .nav-links div.nav-next, .single-project .nav-links div.nav-next {
     width: 44.44444%;
     float: left;
     margin-right: 11.11111%;
     float: right;
     margin-right: 0;
     text-align: right; }
+
+.single #modal .nav-links a:hover, .single #modal .nav-links a:hover {
+  background: rgba(0, 0, 0, 0.54); }
 
 /*--------------------------------------------------------------
 # Accessibility
@@ -1348,6 +1351,12 @@ object {
 
 .gallery-caption {
   display: block; }
+
+/*--------------------------------------------------------------
+## Code Blocks
+--------------------------------------------------------------*/
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+  clear: both; }
 
 /*--------------------------------------------------------------
 # Pages

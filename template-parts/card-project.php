@@ -22,7 +22,7 @@ $languages = get_post_meta(get_the_ID(), '_zenerator_languages');
 		</div>
 
 		<header class="entry-header">
-			<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" class="project-link" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+			<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" class="project-link article-link" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 			<?php if ( 'project' === get_post_type() ) : ?>
 				<div class="entry-meta">
@@ -50,10 +50,10 @@ $languages = get_post_meta(get_the_ID(), '_zenerator_languages');
 			?>
 
 			<?php
-			wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'zentheme' ),
-					'after'  => '</div>',
-			) );
+//			wp_link_pages( array(
+//					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'zentheme' ),
+//					'after'  => '</div>',
+//			) );
 			?>
 		</div><!-- .entry-content -->
 

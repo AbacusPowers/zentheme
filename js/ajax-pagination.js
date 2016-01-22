@@ -13,12 +13,13 @@
         var page = find_page_number($(this));
         $('#posts-loading').show();
         $.ajax({
-            url: ajaxpagination.ajaxurl,
+            url: ajaxification.ajaxurl,
             type: 'post',
             data: {
                 action: 'ajax_pagination',
-                query_vars: ajaxpagination.query_vars,
-                page: page
+                query_vars: ajaxification.query_vars,
+                page: page,
+                security: ajaxification.ajax_nonce
             },
             success: function( html ) {
                 //$('#main').find( 'article' ).remove();
@@ -26,7 +27,7 @@
                 $('#main').append( html );
                 $('#posts-loading').hide();
                 //$('html, body').animate({scrollTop : 0},800);
-                //console.log(page, ajaxpagination.query_vars);
+                //console.log(page, ajaxification.query_vars);
             }
         });
 

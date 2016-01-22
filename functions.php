@@ -149,7 +149,7 @@ function zentheme_scripts() {
 	//dependencies/libraries
 	wp_deregister_script( 'jquery' );
 	wp_enqueue_script( 'jquery', ( 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js' ), false, null, false );
-	wp_enqueue_script( 'jquery-ui', ( 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js' ), false, null, false );
+	wp_enqueue_script( 'jquery-ui', ( 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js' ), array( 'jquery' ), null, false );
 
 	wp_enqueue_script( 'metaquery', get_template_directory_uri() . '/bower_components/metaquery/metaquery.min.js', array(), '', true );
 
@@ -181,7 +181,7 @@ function zentheme_scripts() {
 
 //	wp_enqueue_script( 'zentheme-ajax-get-post',  get_template_directory_uri() . '/js/ajax-get-post.js', array( 'jquery' ), '1.0', true );
 
-	wp_enqueue_script( 'zentheme-ajax-modal',  get_template_directory_uri() . '/js/ajax-modal.js', array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'zentheme-ajax-modal',  get_template_directory_uri() . '/js/ajaxify.js', array( 'jquery' ), '1.0', true );
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -194,12 +194,15 @@ function zentheme_scripts() {
 	$ajax_url = admin_url( 'admin-ajax.php' );
 	global $wp_query;
 	$query_vars = json_encode( $wp_query->query_vars );
+	$ajax_nonce = wp_create_nonce('zentheme_ajax_nonce');
+
 //	var_dump($wp_query->query_vars);
-	wp_localize_script('zentheme-ajax-pagination','ajaxpagination', array(
+	wp_localize_script('zentheme-ajax-pagination','ajaxification', array(
 			'ajaxurl' => $ajax_url,
-			'query_vars' => $query_vars
+			'query_vars' => $query_vars,
+			'ajax_nonce' => $ajax_nonce
 	));
-	wp_localize_script('zentheme-ajax-ajaxgetpost','ajaxgetpost', array());
+//	wp_localize_script('zentheme-ajax-ajaxgetpost','ajaxgetpost', array());
 }
 add_action( 'wp_enqueue_scripts', 'zentheme_scripts' );
 
@@ -306,6 +309,8 @@ add_action( 'wp_ajax_nopriv_ajax_pagination','zentheme_ajax_pagination');
 add_action( 'wp_ajax_ajax_pagination','zentheme_ajax_pagination');
 
 function zentheme_ajax_pagination(){
+	check_ajax_referer('zentheme_ajax_nonce','security');
+
 	$query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
 
 	$query_vars['paged'] = $_POST['page'];
@@ -334,7 +339,7 @@ function zentheme_ajax_pagination(){
 			'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'zentheme' ) . ' </span>',
 	) );
 
-	die();
+	wp_die();
 }
 
 function my_image_size_override() {
@@ -345,26 +350,28 @@ add_action( 'wp_ajax_nopriv_ajax_get_post','zentheme_ajax_get_post');
 add_action( 'wp_ajax_ajax_get_post','zentheme_ajax_get_post');
 
 function zentheme_ajax_get_post(){
+	check_ajax_referer('zentheme_ajax_nonce','security');
+	$post_id = $_POST['post_id'];
 	$args = array(
-		'p' => $_POST['post_id']
+		'p' => $post_id
 	);
 	$post = new WP_Query( $args );
 	if( $post->have_posts() ) :	while( $post->have_posts() ) : $post->the_post();
 		get_template_part('template-parts/content','single');
 	endwhile; endif;
 
-	die();
+	wp_die();
 
 }
 
 add_action( 'wp_ajax_nopriv_ajax_get_project','zentheme_ajax_get_project');
 add_action( 'wp_ajax_ajax_get_project','zentheme_ajax_get_project');
 function zentheme_ajax_get_project(){
+	check_ajax_referer('zentheme_ajax_nonce','security');
 	$args = array(
 			'p' => $_POST['post_id'],
 			'post_type' => 'project'
 	);
-//	var_dump($args);
 	$post = new WP_Query( $args );
 	if( $post->have_posts() ) :	while( $post->have_posts() ) : $post->the_post();
 		get_template_part('template-parts/content','project');
@@ -372,11 +379,28 @@ function zentheme_ajax_get_project(){
 	else : var_dump('failure');
 	endif;
 
-	die();
+	wp_die();
 
 }
 
+add_action( 'wp_ajax_nopriv_ajax_get_attachment','zentheme_ajax_get_attachment');
+add_action( 'wp_ajax_ajax_get_attachment','zentheme_ajax_get_attachment');
 
+function zentheme_ajax_get_attachment(){
+	check_ajax_referer('zentheme_ajax_nonce','security');
+	$args = array(
+		'p' => $_POST['post_id'],
+		'post_type' => 'attachment'
+	);
+	$post = new WP_Query( $args );
+	var_dump('something happened');
+	if( $post->have_posts() ) :	while( $post->have_posts() ) : $post->the_post();
+		get_template_part('template-parts/content','ajax-attachment');
+	endwhile; endif;
+
+	wp_die();
+
+}
 /**
  * @param $query
  */

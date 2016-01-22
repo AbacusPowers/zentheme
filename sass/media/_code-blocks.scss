@@ -1,0 +1,4 @@
+// Forces code blocks for Prism.js to clear
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+	clear: both;
+}

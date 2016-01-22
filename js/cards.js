@@ -3,7 +3,17 @@
  */
 (function($) {
     $(document).on('click','.destroy-card',function(){
-        $(this).closest('.card').slideToggle({ duration: 1000, easing: 'easeOutQuint' });
+        var card = $(this).closest('.card');
+        card.slideToggle(
+            {
+                duration: 1000,
+                easing: 'easeOutQuint',
+                complete: function(){
+                    card.remove();
+                }
+            }
+        );
+
     })
 })( jQuery );
 

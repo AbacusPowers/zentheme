@@ -19,26 +19,15 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php
-		// check if the post has a Post Thumbnail assigned to it.
-		if ( has_post_thumbnail() ) {
-			the_post_thumbnail();
-		}
-		?>
-		<?php the_content(); ?>
-		<?php
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'zentheme' ),
-			'after'  => '</div>',
-		) );
-		?>
-		<?php
-		// If comments are open or we have at least one comment, load up the comment template.
-		if ( comments_open() || get_comments_number() ) :
-			comments_template();
-		endif;
-		?>
+		<?php $image_info = getimagesize($post->guid); ?>
+		<img src="<?php echo $post->guid; ?>" alt="<?php the_title(); ?>" title="<?php the_title(); ?>" <?php echo $image_info[3]; ?> />
 
+		<?php
+//			wp_link_pages( array(
+//				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'zentheme' ),
+//				'after'  => '</div>',
+//			) );
+		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
