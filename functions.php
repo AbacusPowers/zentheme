@@ -233,11 +233,16 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
-//require CMB2 files
+/**
+ * Load CMB2
+ */
 if ( file_exists(  __DIR__ . '/cmb2/init.php' ) ) {
 	require_once  __DIR__ . '/cmb2/init.php';
 }
 
+/**
+ * Load theme options setup
+ */
 require get_template_directory() . '/options.php';
 
 /*********************
@@ -277,6 +282,9 @@ function zentheme_custom_image_sizes( $sizes ) {
 	) );
 }
 
+function my_image_size_override() {
+	return array( 825, 510 );
+}
 /*********************
 PAGE NAVI
  *********************/
@@ -344,9 +352,7 @@ function zentheme_ajax_pagination(){
 	wp_die();
 }
 
-function my_image_size_override() {
-	return array( 825, 510 );
-}
+
 
 add_action( 'wp_ajax_nopriv_ajax_get_post','zentheme_ajax_get_post');
 add_action( 'wp_ajax_ajax_get_post','zentheme_ajax_get_post');
@@ -395,7 +401,6 @@ function zentheme_ajax_get_attachment(){
 		'post_type' => 'attachment'
 	);
 	$post = new WP_Query( $args );
-	var_dump('something happened');
 	if( $post->have_posts() ) :	while( $post->have_posts() ) : $post->the_post();
 		get_template_part('template-parts/content','ajax-attachment');
 	endwhile; endif;
@@ -403,7 +408,12 @@ function zentheme_ajax_get_attachment(){
 	wp_die();
 
 }
+
+/*********************
+HELPERS
+ *********************/
 /**
+ * function to change the number of posts that appear on specific archive pages
  * @param $query
  */
 function zentheme_project_pagesize($query ) {
@@ -418,3 +428,9 @@ function zentheme_project_pagesize($query ) {
 	}
 }
 add_action( 'pre_get_posts', 'zentheme_project_pagesize', 1 );
+
+
+/*********************
+THEME OPTIONS
+ *********************/
+

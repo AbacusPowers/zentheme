@@ -22,7 +22,7 @@
 .loading {
 	&:before {
 		content: '';
-		position: absolute;
+		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
@@ -31,7 +31,7 @@
 	}
 	&:after {
 		content: url('img/gif/zen-spinner.GIF');
-		position:absolute;
+		position: fixed;
 		top: 50%;
 		margin-top: -32px;
 		left: 50%;

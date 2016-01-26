@@ -20,11 +20,12 @@
 			<span class="sep"> | </span>
 			Zentheme by <a href="<?php echo esc_url( __('http://360zen.com/','zentheme') ); ?>" rel="designer">Justin Maurer</a>
 		</div><!-- .site-info -->
+		<div id="#footer-search"><?php get_search_form(); ?></div>
 		<button class="fab to-top" alt="Scroll to the top, please" title="Scroll to the top, please"><i class="material-icons">arrow_upward</i></button>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-
+<?php include_once("analyticstracking.php") ?>
 </body>
 </html>

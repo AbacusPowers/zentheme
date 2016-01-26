@@ -123,6 +123,13 @@ class Zentheme_Admin {
             'default' => '#bada55',
         ) );
 
+        $cmb->add_field( array(
+            'name' => __( 'Google Analytics Tracking ID', 'zentheme' ),
+            'desc' => __( 'Just the UA-XXXXXXXX part', 'zentheme' ),
+            'id'   => 'zen_analytics_id',
+            'type' => 'text_small'
+        ) );
+
     }
 
     /**
