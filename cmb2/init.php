@@ -47,7 +47,6 @@
                   (or any code in the included files)
                   or things might explode!
 *************************************************************************/
-
 if ( ! class_exists( 'CMB2_Bootstrap_212', false ) ) {
 
 	/**
@@ -142,6 +141,7 @@ if ( ! class_exists( 'CMB2_Bootstrap_212', false ) ) {
 
 			// Include helper functions
 			require_once 'includes/helper-functions.php';
+			var_dump('helps!'); die();
 
 			// Now kick off the class autoloader
 			spl_autoload_register( 'cmb2_autoload_classes' );

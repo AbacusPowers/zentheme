@@ -1,6 +1,8 @@
 // Ajaxify
 // v1.0.1 - 30 September, 2012
 // https://github.com/browserstate/ajaxify
+// Modified by Justin Maurer - January 26, 2016
+
 (function(window,undefined){
 	
 	// Prepare our Variables
@@ -126,8 +128,10 @@
 						$dataBody = $data.find('.document-body:first'),
 						$dataContent = $dataBody.find(contentSelector).filter(':first'),
 						$menuChildren, contentHtml, $scripts,
+						//parser to get body classes. probably could replace the whole documentHtml function with this stuff
 						parser = new DOMParser(),
 						doc = parser.parseFromString(data, "text/html"),
+						// muy importante para la CSS
 						$bodyClasses = $(doc).find('body').attr('class');
 					
 					// Fetch the scripts
@@ -148,19 +152,10 @@
 					$menuChildren = $menu.find(menuChildrenSelector);
 					$menuChildren.filter(activeSelector).removeClass(activeClass);
 					$menuChildren = $menuChildren.has('a[href^="'+relativeUrl+'"],a[href^="/'+relativeUrl+'"],a[href^="'+url+'"]');
-					console.log( $menuChildren);
-					if ( $menuChildren.length === 1 ) {
-						$menuChildren.addClass(activeClass);
-					} else {
-						$(doc).find('current_page_parent')
-					}
 
-
-
+					if ( $menuChildren.length === 1 ) { $menuChildren.addClass(activeClass); }
 
 					//Update the body classes
-					//$('body').attr('class',$bodyClasses);
-					//console.log($bodyClasses);
 					$('body').attr('class',$bodyClasses);
 
 					// Update the content
