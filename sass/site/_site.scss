@@ -73,8 +73,8 @@ video#bgvid {
     background-size: cover;
 }
 
-#primary .type-post, #primary .type-project {
-    .single &, #modal & {
+#primary .type-post, #primary .type-project, #primary .type-attachment, #primary section.error-404 {
+    .single &, #modal &, body.error404 & {
         .breakpoint-large &, .breakpoint-wide & {
             padding: 5rem;
         }
@@ -95,6 +95,10 @@ video#bgvid {
             }
         }
     }
+}
+#primary section.error-404 {
+    background: $content-background;
+    @include clearfix;
 }
 #primary .type-page {
     .page & {

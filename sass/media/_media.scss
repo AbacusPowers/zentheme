@@ -19,6 +19,10 @@ object {
 		border-bottom: 0;
 	}
 }
+
+#primary .type-attachment .entry-content img {
+	border: 1px solid $text-black-tertiary;
+}
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
