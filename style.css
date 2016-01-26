@@ -994,6 +994,22 @@ a {
 .single #modal .nav-links a:hover, .single #modal .nav-links a:hover {
   background: rgba(0, 0, 0, 0.54); }
 
+.loading:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.7); }
+.loading:after {
+  content: url("img/gif/zen-spinner.GIF");
+  position: absolute;
+  top: 50%;
+  margin-top: -32px;
+  left: 50%;
+  margin-left: -32px; }
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/

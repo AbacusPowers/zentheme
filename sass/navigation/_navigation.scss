@@ -17,3 +17,24 @@
 ## Article/Post Navigation
 --------------------------------------------------------------*/
 @import "article-nav";
+
+
+.loading {
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: $text-white-secondary;
+	}
+	&:after {
+		content: url('img/gif/zen-spinner.GIF');
+		position:absolute;
+		top: 50%;
+		margin-top: -32px;
+		left: 50%;
+		margin-left: -32px;
+	}
+}

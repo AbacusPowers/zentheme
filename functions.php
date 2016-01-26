@@ -169,6 +169,8 @@ function zentheme_scripts() {
 
 	wp_enqueue_script( 'prism-js', get_template_directory_uri() . '/js/vendor/prism/prism.js', array(), '', true );
 
+	wp_enqueue_script( 'ajaxify', get_template_directory_uri() . '/js/vendor/ajaxify/ajaxify-html5.js', array(), '', true );
+
 	wp_enqueue_script( 'zentheme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'zentheme-cards', get_template_directory_uri() . '/js/cards.js', array(), '', true );
@@ -181,7 +183,7 @@ function zentheme_scripts() {
 
 //	wp_enqueue_script( 'zentheme-ajax-get-post',  get_template_directory_uri() . '/js/ajax-get-post.js', array( 'jquery' ), '1.0', true );
 
-	wp_enqueue_script( 'zentheme-ajax-modal',  get_template_directory_uri() . '/js/ajaxify.js', array( 'jquery' ), '1.0', true );
+//	wp_enqueue_script( 'zentheme-ajax-modal',  get_template_directory_uri() . '/js/ajaxify.js', array( 'jquery' ), '1.0', true );
 
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
