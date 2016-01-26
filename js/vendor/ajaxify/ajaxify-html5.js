@@ -51,9 +51,9 @@
 				url = $this.attr('href')||'',
 				isInternalLink;
 			
-			// Check link
-			isInternalLink = url.substring(0,rootUrl.length) === rootUrl || url.indexOf(':') === -1;
-			
+			// Check link for internal URL that's NOT a WordPress admin or login page
+			isInternalLink = (url.substring(0,rootUrl.length) === rootUrl || url.indexOf(':') === -1 ) && url.indexOf('wp-admin') === -1 && url.indexOf('wp-login') === -1;
+
 			// Ignore or Keep
 			return isInternalLink;
 		};

@@ -1243,24 +1243,18 @@ video#bgvid {
   background: no-repeat;
   background-size: cover; }
 
-.breakpoint-large .single #primary .type-post, .breakpoint-wide .single #primary .type-post, .breakpoint-large #modal #primary .type-post, .breakpoint-wide #modal #primary .type-post, .breakpoint-large body.error404 #primary .type-post, .breakpoint-wide body.error404 #primary .type-post, .breakpoint-large .single #primary .type-project, .breakpoint-wide .single #primary .type-project, .breakpoint-large #modal #primary .type-project, .breakpoint-wide #modal #primary .type-project, .breakpoint-large body.error404 #primary .type-project, .breakpoint-wide body.error404 #primary .type-project, .breakpoint-large .single #primary .type-attachment, .breakpoint-wide .single #primary .type-attachment, .breakpoint-large #modal #primary .type-attachment, .breakpoint-wide #modal #primary .type-attachment, .breakpoint-large body.error404 #primary .type-attachment, .breakpoint-wide body.error404 #primary .type-attachment, .breakpoint-large .single #primary section.error-404, .breakpoint-wide .single #primary section.error-404, .breakpoint-large #modal #primary section.error-404, .breakpoint-wide #modal #primary section.error-404, .breakpoint-large body.error404 #primary section.error-404, .breakpoint-wide body.error404 #primary section.error-404 {
+.breakpoint-large .single #primary .type-post, .breakpoint-wide .single #primary .type-post, .breakpoint-large #modal #primary .type-post, .breakpoint-wide #modal #primary .type-post, .breakpoint-large .single #primary .type-project, .breakpoint-wide .single #primary .type-project, .breakpoint-large #modal #primary .type-project, .breakpoint-wide #modal #primary .type-project {
   padding: 5rem; }
-.breakpoint-medium .single #primary .type-post, .breakpoint-medium #modal #primary .type-post, .breakpoint-medium body.error404 #primary .type-post, .breakpoint-medium .single #primary .type-project, .breakpoint-medium #modal #primary .type-project, .breakpoint-medium body.error404 #primary .type-project, .breakpoint-medium .single #primary .type-attachment, .breakpoint-medium #modal #primary .type-attachment, .breakpoint-medium body.error404 #primary .type-attachment, .breakpoint-medium .single #primary section.error-404, .breakpoint-medium #modal #primary section.error-404, .breakpoint-medium body.error404 #primary section.error-404 {
+.breakpoint-medium .single #primary .type-post, .breakpoint-medium #modal #primary .type-post, .breakpoint-medium .single #primary .type-project, .breakpoint-medium #modal #primary .type-project {
   padding: 2rem; }
-.breakpoint-small .single #primary .type-post, .breakpoint-small #modal #primary .type-post, .breakpoint-small body.error404 #primary .type-post, .breakpoint-small .single #primary .type-project, .breakpoint-small #modal #primary .type-project, .breakpoint-small body.error404 #primary .type-project, .breakpoint-small .single #primary .type-attachment, .breakpoint-small #modal #primary .type-attachment, .breakpoint-small body.error404 #primary .type-attachment, .breakpoint-small .single #primary section.error-404, .breakpoint-small #modal #primary section.error-404, .breakpoint-small body.error404 #primary section.error-404 {
+.breakpoint-small .single #primary .type-post, .breakpoint-small #modal #primary .type-post, .breakpoint-small .single #primary .type-project, .breakpoint-small #modal #primary .type-project {
   padding: 1rem; }
-.single #primary .type-post .wp-post-image, #modal #primary .type-post .wp-post-image, body.error404 #primary .type-post .wp-post-image, .single #primary .type-project .wp-post-image, #modal #primary .type-project .wp-post-image, body.error404 #primary .type-project .wp-post-image, .single #primary .type-attachment .wp-post-image, #modal #primary .type-attachment .wp-post-image, body.error404 #primary .type-attachment .wp-post-image, .single #primary section.error-404 .wp-post-image, #modal #primary section.error-404 .wp-post-image, body.error404 #primary section.error-404 .wp-post-image {
+.single #primary .type-post .wp-post-image, #modal #primary .type-post .wp-post-image, .single #primary .type-project .wp-post-image, #modal #primary .type-project .wp-post-image {
   max-width: 50%;
   float: left;
   margin: 0 1rem 1rem 0; }
-.single #primary .type-post .entry-content p, #modal #primary .type-post .entry-content p, body.error404 #primary .type-post .entry-content p, .single #primary .type-project .entry-content p, #modal #primary .type-project .entry-content p, body.error404 #primary .type-project .entry-content p, .single #primary .type-attachment .entry-content p, #modal #primary .type-attachment .entry-content p, body.error404 #primary .type-attachment .entry-content p, .single #primary section.error-404 .entry-content p, #modal #primary section.error-404 .entry-content p, body.error404 #primary section.error-404 .entry-content p {
+.single #primary .type-post .entry-content p, #modal #primary .type-post .entry-content p, .single #primary .type-project .entry-content p, #modal #primary .type-project .entry-content p {
   margin-top: 0; }
-
-#primary section.error-404 {
-  background: #FFFFFF;
-  content: "";
-  display: table;
-  table-layout: fixed; }
 
 .breakpoint-large .page #primary .type-page, .breakpoint-wide .page #primary .type-page {
   padding: 2rem 5rem; }
@@ -1324,9 +1318,6 @@ object {
 .entry-image a:hover, .entry-image a:focus, .entry-image a:active {
   border-bottom: 0; }
 
-#primary .type-attachment .entry-content img {
-  border: 1px solid rgba(0, 0, 0, 0.38); }
-
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
@@ -1375,7 +1366,7 @@ object {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7); }
 
 .gallery-caption {
-  display: none; }
+  display: block; }
 
 /*--------------------------------------------------------------
 ## Code Blocks
