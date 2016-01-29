@@ -158,24 +158,24 @@ function zentheme_scripts() {
 	wp_enqueue_script( 'waypoints', get_template_directory_uri() . '/bower_components/waypoints/lib/jquery.waypoints.js', array(), '', true );
 	wp_enqueue_script( 'waypoints-sticky', get_template_directory_uri() . '/bower_components/waypoints/lib/shortcuts/sticky.min.js', array(), '', true );
 
-	//custom scripts and styles
-	wp_enqueue_style( 'zentheme-style', get_stylesheet_uri() );
-
 	wp_enqueue_style( 'material-design-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons' );
 
 	wp_enqueue_style( 'jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css' );
 
-//	wp_enqueue_style( 'prism-css', get_template_directory_uri() . '/css/vendor/prism/themes/twilight.css' );
-
 	wp_enqueue_script( 'prism-js', get_template_directory_uri() . '/js/vendor/prism/prism.js', array(), '', true );
 
-	wp_enqueue_script( 'ajaxify', get_template_directory_uri() . '/js/vendor/ajaxify/ajaxify-html5.js', array(), '', true );
+	wp_enqueue_script( 'ajaxify', get_template_directory_uri() . '/js/vendor/ajaxify/ajaxify-html5.js', array( 'jquery' ), '', true );
 
-	wp_enqueue_script( 'zentheme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_script( 'scrollto', get_template_directory_uri() . '/js/vendor/jquery-scrollto/lib/jquery-scrollto.js', array( 'jquery' ), '', true );
 
-	wp_enqueue_script( 'zentheme-cards', get_template_directory_uri() . '/js/cards.js', array(), '', true );
+	//custom scripts and styles
+	wp_enqueue_style( 'zentheme-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'zentheme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'zentheme-navigation', get_template_directory_uri() . '/js/navigation.js', array( 'jquery' ), '20120206', true );
+
+	wp_enqueue_script( 'zentheme-cards', get_template_directory_uri() . '/js/cards.js', array( 'jquery' ), '', true );
+
+	wp_enqueue_script( 'zentheme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js',array( 'jquery' ), '20130115', true );
 
 	wp_enqueue_script( 'zentheme-ajax-pagination',  get_template_directory_uri() . '/js/ajax-pagination.js', array( 'jquery' ), '1.0', true );
 

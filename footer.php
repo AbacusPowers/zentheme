@@ -20,7 +20,12 @@
 			<span class="sep"> | </span>
 			Zentheme by <a href="<?php echo esc_url( __('http://360zen.com/','zentheme') ); ?>" rel="designer">Justin Maurer</a>
 		</div><!-- .site-info -->
-		<div id="#footer-search"><?php get_search_form(); ?></div>
+		<div id="footer-social">
+			<span class="social-link"><a href="https://github.com/AbacusPowers" title="GitHub"><i class="fa fa-github"></i></a></span>
+			<span class="social-link"><a href="https://plus.google.com/+360zen" title="Google+"><i class="fa fa-google-plus"></i></a></span>
+			<span class="social-link"><a href="https://www.facebook.com/360zen/" title="Google+"><i class="fa fa-facebook"></i></a></span>
+		</div>
+		<div id="footer-search"><?php get_search_form(); ?></div>
 		<button class="fab to-top" alt="Scroll to the top, please" title="Scroll to the top, please"><i class="material-icons">arrow_upward</i></button>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
