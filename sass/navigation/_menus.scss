@@ -1,6 +1,5 @@
 .main-navigation{
 	height: 100%;
-	display: inline-block;
 	margin-left: 3rem;
 
 	.breakpoint-medium &, .breakpoint-large &, .breakpoint-wide & {
@@ -18,12 +17,17 @@
 		}
 	}
 	ul {
-		display: block;
-		margin: 0;
-
+		//display: block;
+		//margin: 0;
+		list-style: none;
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
 		li {
-			display: table;
-			float: left;
+			//display: table;
+			//float: left;
+			display: flex;
+			align-content: stretch;
 			letter-spacing: 1px;
 			&.current-menu-item {
 				background: $primary-light;
@@ -32,9 +36,11 @@
 				background: $primary-medium;
 			}
 			a {
+				display: flex;
+				align-items: center;
 				color: $text-white-primary;
-				display: table-cell;
-				vertical-align: middle;
+				//display: table-cell;
+				//vertical-align: middle;
 				padding: 0 1rem;
 				&:hover, &:focus, &:active {
 					border-bottom: 0;

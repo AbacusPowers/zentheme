@@ -14,13 +14,14 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
+		<div id="site-info">
 <!--			<a href="--><?php //echo esc_url( __( 'https://wordpress.org/', 'zentheme' ) ); ?><!--">--><?php //printf( esc_html__( 'Proudly powered by %s', 'zentheme' ), 'WordPress' ); ?><!--</a>-->
-			<span class="copyright">&copy; 2015 Justin Maurer</span>
+			<span class="copyright">&copy; 2015 360 Zen</span>
 			<span class="sep"> | </span>
-			Zentheme by <a href="<?php echo esc_url( __('http://360zen.com/','zentheme') ); ?>" rel="designer">Justin Maurer</a>
+			<a href="https://bitbucket.org/360zen/zentheme">Zentheme</a> by <a href="<?php echo esc_url( __('http://360zen.com/','zentheme') ); ?>" rel="designer">Justin Maurer</a>
 		</div><!-- .site-info -->
 		<div id="footer-social">
+			Find me online:
 			<span class="social-link"><a href="https://github.com/AbacusPowers" title="GitHub"><i class="fa fa-github"></i></a></span>
 			<span class="social-link"><a href="https://plus.google.com/+360zen" title="Google+"><i class="fa fa-google-plus"></i></a></span>
 			<span class="social-link"><a href="https://www.facebook.com/360zen/" title="Google+"><i class="fa fa-facebook"></i></a></span>
