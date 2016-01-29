@@ -1,5 +1,13 @@
-(function($) {
 
+
+(function($) {
+    $.fn.redraw = function(){
+        $(this).each(function(){
+            //var redraw = this.offsetHeight;
+            $(this).toggle().toggle();
+            console.log('drawing');
+        });
+    };
     function animate_header(){
 
         function do_it(size) {

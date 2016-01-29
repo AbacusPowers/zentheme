@@ -18,13 +18,14 @@
 	background-color: $primary;
 	z-index: 1000;
 	height: 160px;
-	text-align: center;
+	display:flex;
+	justify-content: center;
+	align-items: stretch;
 	.breakpoint-small & {
 		height: auto;
 		padding: 1rem;
 	}
 	.site-branding {
-		display: inline-block;
 		padding: 0.25rem 0;
 		.breakpoint-small & {
 			height: 140px;

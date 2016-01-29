@@ -1,7 +1,7 @@
 // Ajaxify
 // v1.0.1 - 30 September, 2012
 // https://github.com/browserstate/ajaxify
-// Modified by Justin Maurer - January 26, 2016
+// Modified for _s WordPress theme by Justin Maurer - January 26, 2016
 
 (function(window,undefined){
 	
@@ -147,7 +147,6 @@
 						return false;
 					}
 
-
 					// Update the menu
 					$menuChildren = $menu.find(menuChildrenSelector);
 					$menuChildren.filter(activeSelector).removeClass(activeClass);
@@ -195,6 +194,10 @@
 					if ( typeof window.reinvigorate !== 'undefined' && typeof window.reinvigorate.ajax_track !== 'undefined' ) {
 						reinvigorate.ajax_track(url);
 						// ^ we use the full url here as that is what reinvigorate supports
+					}
+
+					if (Prism) {
+						Prism.highlightAll();
 					}
 				},
 				error: function(jqXHR, textStatus, errorThrown){
