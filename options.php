@@ -40,7 +40,7 @@ class Zentheme_Admin {
      */
     public function __construct() {
         // Set our title
-        $this->title = __( 'Site Options', 'zentheme' );
+        $this->title = __( 'Zentheme Options', 'zentheme' );
     }
 
     /**
@@ -49,8 +49,8 @@ class Zentheme_Admin {
      */
     public function hooks() {
         add_action( 'admin_init', array( $this, 'init' ) );
-        add_action( 'admin_menu', array( $this, 'add_options_page' ) );
-        add_action( 'cmb2_admin_init', array( $this, 'add_options_page_metabox' ) );
+        add_action( 'admin_menu', array( $this, 'cmb_options_page' ) );
+        add_action( 'cmb2_admin_init', array( $this, 'cmb_options_page_metabox' ) );
     }
 
 
@@ -66,8 +66,8 @@ class Zentheme_Admin {
      * Add menu options page
      * @since 0.1.0
      */
-    public function add_options_page() {
-        $this->options_page = add_menu_page( $this->title, $this->title, 'manage_options', $this->key, array( $this, 'admin_page_display' ) );
+    public function cmb_options_page() {
+        $this->options_page = add_theme_page( $this->title, $this->title, 'manage_options', $this->key, array( $this, 'admin_page_display' ) );
 
         // Include CMB CSS in the head to avoid FOUC
         add_action( "admin_print_styles-{$this->options_page}", array( 'CMB2_hookup', 'enqueue_cmb_css' ) );
@@ -90,7 +90,7 @@ class Zentheme_Admin {
      * Add the options metabox to the array of metaboxes
      * @since  0.1.0
      */
-    function add_options_page_metabox() {
+    function cmb_options_page_metabox() {
 
         // hook in our save notices
         add_action( "cmb2_save_options-page_fields_{$this->metabox_id}", array( $this, 'settings_notices' ), 10, 2 );
