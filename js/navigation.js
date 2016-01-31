@@ -9,7 +9,7 @@
     }
 
     function correct_header_data(){
-        if (!header) {
+        if (header === 'undefined') {
             header = $('#masthead');
         }
         if($(document).scrollTop() > 0) {
