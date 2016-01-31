@@ -9,6 +9,9 @@
     }
 
     function correct_header_data(){
+        if (!header) {
+            header = $('#masthead');
+        }
         if($(document).scrollTop() > 0) {
             if( !header.data('size') || header.data('size') == 'big') {
                 header.data('size', 'small');
