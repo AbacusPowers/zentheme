@@ -2716,18 +2716,20 @@ table {
         text-transform: uppercase; }
 
 #masthead {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   position: fixed;
   top: 0;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  left: 0;
-  right: 0;
-  padding: 0 1rem;
-  background-color: #E87B46;
-  z-index: 1000;
-  height: 160px;
+  width: 100%;
+  background: #E87B46;
   display: flex;
   justify-content: center;
-  align-items: stretch; }
+  z-index: 1000;
+  max-height: 160px;
+  -webkit-transition: max-height 400ms;
+  -moz-transition: max-height 400ms;
+  -ms-transition: max-height 400ms;
+  -o-transition: max-height 400ms;
+  transition: max-height 400ms; }
   .admin-bar #masthead {
     top: 32px; }
     @media screen and (min-width: 600px) and (max-width: 782px) {
@@ -2737,23 +2739,82 @@ table {
       .admin-bar #masthead {
         top: 0; } }
   .breakpoint-small #masthead {
-    height: auto;
-    padding: 1rem; }
-  #masthead .site-branding {
-    padding: 0.25rem 0;
-    height: 100%; }
-    .breakpoint-small #masthead .site-branding {
-      height: 140px;
-      display: block; }
-    .breakpoint-small #masthead .site-branding #masthead-logo {
-      margin: 0 auto; }
-    #masthead .site-branding #masthead-logo {
-      height: 100%;
+    display: block; }
+    .breakpoint-small #masthead nav#site-navigation {
       display: block;
-      margin: 0 auto;
-      max-width: none; }
-      #masthead .site-branding #masthead-logo.scrolled {
-        max-height: 100%; }
+      background: #E87B46;
+      max-height: 0;
+      overflow: hidden;
+      margin-left: auto;
+      -webkit-transition: max-height 400ms;
+      -moz-transition: max-height 400ms;
+      -ms-transition: max-height 400ms;
+      -o-transition: max-height 400ms;
+      transition: max-height 400ms; }
+    .breakpoint-small #masthead .menu {
+      display: block; }
+    .breakpoint-small #masthead .site-branding {
+      text-align: center; }
+    .breakpoint-small #masthead.toggled {
+      max-height: 1000px; }
+      .breakpoint-small #masthead.toggled nav#site-navigation {
+        max-height: 1000px; }
+  #masthead.small {
+    max-height: 60px; }
+    #masthead.small img#masthead-logo {
+      height: 60px; }
+  #masthead a:hover, #masthead a:focus {
+    border-bottom: 0;
+    text-decoration: none; }
+  #masthead img#masthead-logo {
+    height: 160px;
+    padding: 0.5em 0;
+    -webkit-transition: height 400ms;
+    -moz-transition: height 400ms;
+    -ms-transition: height 400ms;
+    -o-transition: height 400ms;
+    transition: height 400ms; }
+  #masthead .menu {
+    display: flex;
+    align-items: stretch; }
+  #masthead nav#site-navigation {
+    display: flex;
+    align-items: stretch;
+    margin-left: 3em; }
+    #masthead nav#site-navigation .menu {
+      display: flex;
+      align-items: stretch; }
+    #masthead nav#site-navigation ul {
+      list-style: none;
+      display: flex;
+      align-items: stretch;
+      margin: 0; }
+      #masthead nav#site-navigation ul li {
+        display: flex;
+        letter-spacing: 1px; }
+        #masthead nav#site-navigation ul li.current-menu-item {
+          background: #E8A687; }
+        #masthead nav#site-navigation ul li:hover {
+          background: #E8A382; }
+        #masthead nav#site-navigation ul li a {
+          color: white;
+          padding: 0 1rem;
+          display: flex;
+          align-items: center; }
+          #masthead nav#site-navigation ul li a:hover, #masthead nav#site-navigation ul li a:focus, #masthead nav#site-navigation ul li a:active {
+            border-bottom: 0; }
+  #masthead .menu-toggle {
+    display: none;
+    position: absolute;
+    top: 0.4rem;
+    right: 1rem;
+    z-index: 1000;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin: 0; }
+    .breakpoint-small #masthead .menu-toggle {
+      display: block; }
 
 body.article-view {
   overflow: hidden; }
@@ -2971,62 +3032,6 @@ a {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation {
-  height: 100%;
-  margin-left: 3rem; }
-  .breakpoint-medium .main-navigation .menu, .breakpoint-large .main-navigation .menu, .breakpoint-wide .main-navigation .menu {
-    height: 100%; }
-    .breakpoint-medium .main-navigation .menu ul, .breakpoint-large .main-navigation .menu ul, .breakpoint-wide .main-navigation .menu ul {
-      height: 100%; }
-      .breakpoint-medium .main-navigation .menu ul li, .breakpoint-large .main-navigation .menu ul li, .breakpoint-wide .main-navigation .menu ul li {
-        height: 100%; }
-        .breakpoint-medium .main-navigation .menu ul li a, .breakpoint-large .main-navigation .menu ul li a, .breakpoint-wide .main-navigation .menu ul li a {
-          height: 100%; }
-  .main-navigation ul {
-    list-style: none;
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between; }
-    .main-navigation ul li {
-      display: flex;
-      align-content: stretch;
-      letter-spacing: 1px; }
-      .main-navigation ul li.current-menu-item {
-        background: #E8A687; }
-      .main-navigation ul li:hover {
-        background: #E8A382; }
-      .main-navigation ul li a {
-        display: flex;
-        align-items: center;
-        color: white;
-        padding: 0 1rem; }
-        .main-navigation ul li a:hover, .main-navigation ul li a:focus, .main-navigation ul li a:active {
-          border-bottom: 0; }
-  .breakpoint-small .main-navigation {
-    display: none;
-    margin-left: auto;
-    padding-top: 1rem; }
-    .breakpoint-small .main-navigation div.menu {
-      height: auto;
-      background: #E87B46; }
-      .breakpoint-small .main-navigation div.menu ul li {
-        display: block;
-        float: none;
-        line-height: 200%; }
-
-#masthead .menu-toggle {
-  display: none;
-  position: absolute;
-  top: 0.8rem;
-  right: 1rem;
-  z-index: 1000;
-  background: transparent;
-  box-shadow: none;
-  padding: 0;
-  margin: 0; }
-  .breakpoint-small #masthead .menu-toggle {
-    display: block; }
-
 /*--------------------------------------------------------------
 ## Pagination
 --------------------------------------------------------------*/

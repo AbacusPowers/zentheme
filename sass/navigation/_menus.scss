@@ -1,84 +1,84 @@
-.main-navigation{
-	height: 100%;
-	margin-left: 3rem;
-
-	.breakpoint-medium &, .breakpoint-large &, .breakpoint-wide & {
-		.menu {
-			height: 100%;
-			ul {
-				height: 100%;
-				li {
-					height: 100%;
-					a {
-						height: 100%;
-					}
-				}
-			}
-		}
-	}
-	ul {
-		//display: block;
-		//margin: 0;
-		list-style: none;
-		display: flex;
-		align-items: stretch;
-		justify-content: space-between;
-		li {
-			//display: table;
-			//float: left;
-			display: flex;
-			align-content: stretch;
-			letter-spacing: 1px;
-			&.current-menu-item {
-				background: $primary-light;
-			}
-			&:hover {
-				background: $primary-medium;
-			}
-			a {
-				display: flex;
-				align-items: center;
-				color: $text-white-primary;
-				//display: table-cell;
-				//vertical-align: middle;
-				padding: 0 1rem;
-				&:hover, &:focus, &:active {
-					border-bottom: 0;
-				}
-			}
-		}
-	}
-
-	.breakpoint-small & {
-		display: none;
-		margin-left: auto;
-		padding-top: 1rem;
-		div.menu {
-			height: auto;
-			background: $primary;
-			ul {
-				li {
-					display: block;
-					float: none;
-					line-height: 200%;
-				}
-			}
-		}
-	}
-}
-#masthead .menu-toggle {
-	display: none;
-	.breakpoint-small & {
-		display: block;
-	}
-	position: absolute;
-	top: 0.8rem;
-	right: 1rem;
-	z-index: 1000;
-	background: transparent;
-	box-shadow: none;
-	padding: 0;
-	margin: 0;
-	@extend .fab-light;
-
-}
+//.main-navigation{
+//	height: 100%;
+//	margin-left: 3rem;
+//
+//	.breakpoint-medium &, .breakpoint-large &, .breakpoint-wide & {
+//		.menu {
+//			height: 100%;
+//			ul {
+//				height: 100%;
+//				li {
+//					height: 100%;
+//					a {
+//						height: 100%;
+//					}
+//				}
+//			}
+//		}
+//	}
+//	ul {
+//		//display: block;
+//		//margin: 0;
+//		list-style: none;
+//		display: flex;
+//		align-items: stretch;
+//		justify-content: space-between;
+//		li {
+//			//display: table;
+//			//float: left;
+//			display: flex;
+//			align-content: stretch;
+//			letter-spacing: 1px;
+//			&.current-menu-item {
+//				background: $primary-light;
+//			}
+//			&:hover {
+//				background: $primary-medium;
+//			}
+//			a {
+//				display: flex;
+//				align-items: center;
+//				color: $text-white-primary;
+//				//display: table-cell;
+//				//vertical-align: middle;
+//				padding: 0 1rem;
+//				&:hover, &:focus, &:active {
+//					border-bottom: 0;
+//				}
+//			}
+//		}
+//	}
+//
+//	.breakpoint-small & {
+//		display: none;
+//		margin-left: auto;
+//		padding-top: 1rem;
+//		div.menu {
+//			height: auto;
+//			background: $primary;
+//			ul {
+//				li {
+//					display: block;
+//					float: none;
+//					line-height: 200%;
+//				}
+//			}
+//		}
+//	}
+//}
+//#masthead .menu-toggle {
+//	display: none;
+//	.breakpoint-small & {
+//		display: block;
+//	}
+//	position: absolute;
+//	top: 0.8rem;
+//	right: 1rem;
+//	z-index: 1000;
+//	background: transparent;
+//	box-shadow: none;
+//	padding: 0;
+//	margin: 0;
+//	@extend .fab-light;
+//
+//}

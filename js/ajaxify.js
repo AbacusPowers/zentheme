@@ -20,6 +20,10 @@
                 }
                 showModal(targetUrl, modal);
             }
+
+            if ($(header).hasClass('toggled')) {
+                $(header).removeClass('toggled');
+            }
         });
     })(window);
 
