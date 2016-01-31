@@ -2716,6 +2716,7 @@ table {
         text-transform: uppercase; }
 
 #masthead {
+  -webkit-transform: translate3d(0, 0, 0);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   position: fixed;
   top: 0;
@@ -2751,8 +2752,8 @@ table {
       -ms-transition: max-height 400ms;
       -o-transition: max-height 400ms;
       transition: max-height 400ms; }
-    .breakpoint-small #masthead .menu {
-      display: block; }
+      .breakpoint-small #masthead nav#site-navigation .menu {
+        display: block; }
     .breakpoint-small #masthead .site-branding {
       text-align: center; }
     .breakpoint-small #masthead.toggled {
@@ -2774,7 +2775,7 @@ table {
     -ms-transition: height 400ms;
     -o-transition: height 400ms;
     transition: height 400ms; }
-  #masthead .menu {
+  #masthead nav#site-navigation .menu {
     display: flex;
     align-items: stretch; }
   #masthead nav#site-navigation {
@@ -3314,13 +3315,15 @@ footer#colophon {
   color: rgba(255, 255, 255, 0.7);
   text-shadow: 1px 1px 3px rgba(150, 150, 150, 0.7);
   font-size: 1.2rem;
+  padding: 0 2rem;
   padding-bottom: 3em; }
   footer#colophon #site-info {
     float: left; }
   footer#colophon #footer-social {
     float: right; }
     .breakpoint-small footer#colophon #footer-social {
-      float: none; }
+      float: none;
+      clear: both; }
     footer#colophon #footer-social .social-link {
       margin-left: 1em; }
       footer#colophon #footer-social .social-link:nth-of-type(1) {

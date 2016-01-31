@@ -35,7 +35,8 @@
 			rootUrl = History.getRootUrl(),
 			scrollOptions = {
 				duration: 800,
-				easing:'swing'
+				easing:'swing',
+				offsetTop: 60,
 			};
 		
 		// Ensure Content

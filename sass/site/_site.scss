@@ -58,7 +58,7 @@ footer#colophon {
     color: $text-white-secondary;
     text-shadow: 1px 1px 3px rgba(150, 150, 150, 0.7);
     font-size: 1.2rem;
-
+    padding: 0 2rem;
     #site-info {
         float: left;
     }
@@ -66,6 +66,7 @@ footer#colophon {
         float: right;
         .breakpoint-small & {
             float: none;
+            clear: both;
         }
         .social-link {
             margin-left: 1em;
