@@ -5,7 +5,7 @@ Theme URI: http://360zen.com
 Author: Justin Maurer
 Author URI: http://360zen.com/
 Description: Custom theme: Zen Theme Alpha developed by, Justin Maurer
-Version: 1.3.8
+Version: 1.3.9
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: zentheme
@@ -3080,6 +3080,8 @@ a {
     float: right;
     margin-right: 0;
     text-align: right; }
+    .breakpoint-small .single-post .nav-links div.nav-next, .breakpoint-small .single-project .nav-links div.nav-next {
+      clear: left; }
 
 .single #modal .nav-links a:hover, .single #modal .nav-links a:hover {
   background: rgba(0, 0, 0, 0.54); }
