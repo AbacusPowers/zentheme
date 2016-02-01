@@ -15,9 +15,8 @@ $description = get_bloginfo( 'description', 'display' );
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--METAQUERY-->
-<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1">
+<meta name="viewport" content="width=480, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no" />
 <meta name="breakpoint" content="small" media="(max-width: 768px)">
 <meta name="breakpoint" content="medium" media="(min-width: 769px) and (max-width: 1024px)">
 <meta name="breakpoint" content="large" media="(min-width: 1025px) and (max-width: 1399px)">
