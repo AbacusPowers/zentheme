@@ -30,11 +30,13 @@
 		background: $text-white-secondary;
 	}
 	&:after {
-		content: url('img/gif/zen-spinner.gif');
+		background: url("img/gif/zen-spinner.gif");
 		position: fixed;
-		top: 50%;
-		margin-top: -32px;
-		left: 50%;
-		margin-left: -32px;
+		top: 0;
+		right: 0;
+		left: 0;
+		z-index: 3000;
+		background-repeat: no-repeat;
+		background-position: center center;
 	}
 }
