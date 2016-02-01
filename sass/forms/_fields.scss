@@ -4,6 +4,7 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 textarea {
+	max-width: 100%;
 	color: $text-black-tertiary;
 	border: 1px solid ;
 	border-radius: 3px;

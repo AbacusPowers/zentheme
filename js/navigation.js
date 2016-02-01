@@ -1,6 +1,8 @@
 (function($) {
 
     function set_header_size(size) {
+        var header = $('#masthead');
+
         if (size === 'small') {
             $(header).addClass('small');
         } else if (size === 'big') {
@@ -8,28 +10,24 @@
         }
     }
 
-    function correct_header_data(){
-        if (header === 'undefined') {
-            header = $('#masthead');
-        }
-        if($(document).scrollTop() > 0) {
-            if( !header.data('size') || header.data('size') == 'big') {
+    function correct_header_data() {
+        var header = $('#masthead');
+        var logo = $('#masthead-logo');
+        var scrollTop = $(document).scrollTop();
+        if (scrollTop > 60) {
+            if ( !header.data('size') || header.data('size') == 'big') {
                 header.data('size', 'small');
 
                 set_header_size('small');
             }
         } else {
-            if( !header.data('size') || header.data('size') == 'small' ) {
+            if ( !header.data('size') || header.data('size') == 'small' ) {
                 header.data('size', 'big');
 
                 set_header_size('big');
             }
         }
     }
-
-    $(document).ready(function(){
-        header = $('#masthead');
-    });
 
     $(window).scroll(function(){
         correct_header_data();

@@ -197,8 +197,15 @@
 						// ^ we use the full url here as that is what reinvigorate supports
 					}
 
+					// Re-highlight code blocks
 					if (Prism) {
 						Prism.highlightAll();
+					}
+
+					// Close the mobile menu
+					var header = $('#masthead');
+					if ($(header).hasClass('toggled')) {
+						$(header).removeClass('toggled');
 					}
 				},
 				error: function(jqXHR, textStatus, errorThrown){
